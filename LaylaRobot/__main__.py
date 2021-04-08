@@ -52,9 +52,9 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi {}, my name is {}! 
-You can find my list of available commands with /help.
-i'm a group manager bot. Maintained by @HEROGAMERS1 ❤
+Hai {}, nama saya Frisky! 
+Anda dapat menemukan daftar perintah yang tersedia dengan ketik /help.
+saya adalah bot grup manager. Maintained by @Lubego666 ❤
 
 """
 
@@ -76,10 +76,10 @@ And the following:
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-SAITAMA_IMG = "https://telegra.ph/file/524b78577a42b02b2f074.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/d6dfe0f932a011dd8620f.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-Supporting him; [Hero](t.me/HEROGAMERS1)"""
+DONATE_STRING = """Ahaha, senang mendengar Anda ingin menyumbang!
+Supporting him; [rsky](t.me/Lubego666)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -101,7 +101,7 @@ for module_name in ALL_MODULES:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
         raise Exception(
-            "Can't have two modules with the same name! Please change one")
+            "Tidak boleh memiliki dua modul dengan nama yang sama! Harap ubah satu")
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
@@ -197,22 +197,22 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="👰 Add 𝙇𝙖𝙮𝙡𝙖 to your group",
-                            url="t.me/{}?startgroup=true".format(
+                            text=" Ayo Tambahkan saya dalam grup mu",
+                            url="t.me/Frisky_robot?startgroup=true".format(
                                 context.bot.username))
                     ],
                      [
                          InlineKeyboardButton(
                              text="Support Group",
-                             url=f"https://t.me/Girls_and_Boys_Chatting"),
+                             url=f"https://t.me/friendzonew"),
                          InlineKeyboardButton(
-                             text="📘 Logs",
-                             url="https://t.me/LaylaLogs")
+                             text="Channel",
+                             url="https://t.me/frssky")
                      ],
                      [
                          InlineKeyboardButton(
-                             text="☑️ Source code",
-                             url="https://github.com/QueenArzoo/LaylaRobot")
+                             text="☑️ Sumber kode",
+                             url="https://github.com/Frisky395/LaylaRobot")
                      ]]))
     else:
         update.effective_message.reply_text(
@@ -375,8 +375,8 @@ def send_settings(chat_id, user_id, user=False):
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any chat settings available :'(\nSend this "
-                "in a group chat you're admin in to find its current settings!",
+                "Sepertinya tidak ada pengaturan obrolan yang tersedia :'(\nKirim ini "
+                "dalam obrolan grup tempat Anda menjadi admin untuk menemukan pengaturannya saat ini!",
                 parse_mode=ParseMode.MARKDOWN)
 
 
@@ -442,11 +442,11 @@ def settings_button(update: Update, context: CallbackContext):
         bot.answer_callback_query(query.id)
         query.message.delete()
     except BadRequest as excp:
-        if excp.message == "Message is not modified":
+        if excp.message == "Tidak dapat memodifikasi pesan":
             pass
         elif excp.message == "Query_id_invalid":
             pass
-        elif excp.message == "Message can't be deleted":
+        elif excp.message == "Tidak dapat menghapus pesan":
             pass
         else:
             LOGGER.exception("Exception in settings buttons. %s",
@@ -489,9 +489,9 @@ def donate(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True)
 
-        if OWNER_ID != 254318997 and DONATION_LINK:
+        if OWNER_ID != 1576998672 and DONATION_LINK:
             update.effective_message.reply_text(
-                "You can also donate to the person currently running me "
+                "Donasi lah anying pulsa 5K "
                 "[here]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN)
 
@@ -504,10 +504,10 @@ def donate(update: Update, context: CallbackContext):
                 disable_web_page_preview=True)
 
             update.effective_message.reply_text(
-                "I've PM'ed you about donating to my creator!")
+                "Ya sekian aja sih")
         except Unauthorized:
             update.effective_message.reply_text(
-                "Contact me in PM first to get donation information.")
+                "Hubungi saya kalau mau donasi pulsa 5k.")
 
 
 def migrate_chats(update: Update, context: CallbackContext):
